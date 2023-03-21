@@ -1,0 +1,20 @@
+<div
+    *ngIf="concesionario"
+    class="concesionario"
+>
+<p class="concesionario__name"> {{ concesionario.nombre }}</p>
+
+    <div class="concesionario__info">
+        <p class="concesionario__ccaa">{{ concesionario.ccaa }}</p>
+    </div>
+
+    <div>
+        <button 
+            class="concesionario__button"
+            (click)="navigateToDetail()"  
+        > Más información
+
+        </button>
+    </div>
+    
+</div>
