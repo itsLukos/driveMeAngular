@@ -1,0 +1,21 @@
+<div
+    *ngIf="concesionario"
+    class="concesionario"
+>
+<p class="concesionario__name"> {{ concesionario.nombre }}</p>
+    <div class="concesionario__info"> Datos:
+        
+        <p class="concesionario__ccaa"> Nos encontrarás en {{ concesionario.ccaa }}</p>
+
+        <p class="concesionario__direccion"> Estamos ubicados en {{ concesionario.direccion }}</p>
+
+        <p class="concesionario__email"> Contacta con nosotros en {{ concesionario.email }}</p>
+
+        <p class="concesionario__telefono"> También puedes llamarnos al {{ concesionario.telefono }}</p>
+    </div>
+
+    <div class="concesionario__coches">
+        
+    </div>
+    
+</div>
