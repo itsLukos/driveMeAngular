@@ -28,6 +28,14 @@ const routes: Routes = [
         path: 'concesionario-detail/:id',
         loadChildren: () => import('./pages/concesionario-detail/concesionario-detail.module').then(m => m.ConcesionarioDetailModule)
     },
+    {
+        path: 'create-user',
+        loadChildren: () => import('./pages/create-user/create-user.module').then(m => m.CreateUserModule)
+    },
+    {
+        path: 'create-car',
+        loadChildren: () => import('./pages/create-car/create-car.module').then(m => m.CreateCarModule)
+    },
     //Acepta cualquier ruta
     {
         path: '**',
