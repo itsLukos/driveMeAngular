@@ -1,0 +1,74 @@
+<form
+    *ngIf="userForm"
+    (submit)="createNewUser()"
+    [formGroup]="userForm">
+
+    <div>
+        <label>Nombre de usuario</label>
+        <input
+            type="text"
+            formControlName="nombreUsuario"
+        >
+        <p
+            *ngIf="!userForm.get('nombreUsuario')?.valid
+            && userForm.get('nombreUsuario')?.touched
+            && userForm.get('nombreUsuario')?.errors?.['required']"
+            [ngStyle]="{ color: 'red'}"
+        >Rellene el campo</p>
+
+        <label>Nombre</label>
+        <input
+            type="text"
+            formControlName="nombre"
+        >
+        <p
+            *ngIf="!userForm.get('nombre')?.valid
+            && userForm.get('nombre')?.touched
+            && userForm.get('nombre')?.errors?.['required']"
+            [ngStyle]="{ color: 'red'}"
+        >Rellene el campo</p>
+
+        <label>Apellidos</label>
+        <input
+            type="text"
+            formControlName="apellidos"
+        >
+        <p
+            *ngIf="!userForm.get('apellidos')?.valid
+            && userForm.get('apellidos')?.touched
+            && userForm.get('apellidos')?.errors?.['required']"
+            [ngStyle]="{ color: 'red'}"
+        >Rellene el campo</p>
+
+        <label>Email</label>
+        <input
+            type="text"
+            formControlName="email"
+        >
+        <p
+            *ngIf="!userForm.get('email')?.valid
+            && userForm.get('email')?.touched
+            && userForm.get('email')?.errors?.['required']"
+            [ngStyle]="{ color: 'red'}"
+        >Rellene el campo</p>
+
+        <label>Contraseña</label>
+        <input
+            type="text"
+            formControlName="password"
+        >
+        <p
+            *ngIf="!userForm.get('password')?.valid
+            && userForm.get('password')?.touched
+            && userForm.get('password')?.errors?.['minlength']"
+            [ngStyle]="{ color: 'red'}"
+        >Introduzca al menos 8 caracteres</p>
+    </div>
+
+    <button
+        type="submit"
+        [disabled]="!userForm.valid"
+    >Crear usuario
+    </button>
+    
+</form>
