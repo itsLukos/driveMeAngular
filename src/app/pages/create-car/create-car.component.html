@@ -37,14 +37,12 @@
             && carForm.get('nuevo')?.errors?.['required']"
             [ngStyle]="{ color: 'red'}">Rellene el campo</p>
 
+        <label>Concesionario</label>
         <select
             formControlName="concesionario"
         >
-            <option default value="Seleccione opción">Concesionario</option>
-            <option
-                *ngFor="let concesionario of concesionarios"
-                [value]="concesionario"
-            >{{ concesionario }}</option>
+            <option default value="Seleccione opción"></option>
+            <option></option>
         </select>
         <p
             *ngIf="!carForm.get('concesionario')?.valid
@@ -53,10 +51,15 @@
             [ngStyle]="{ color: 'red'}">Seleccione una opción</p>
 
         <label>Tipo de motor</label>
-        <input
-            type="text"
+        <select
             formControlName="motor"
         >
+        <option default value="Seleccione opción"></option>
+        <option>Gasolina</option>
+        <option>Diesel</option>
+        <option>Eléctrico</option>
+        <option>Híbrido</option>
+        </select>
         <p
             *ngIf="!carForm.get('motor')?.valid
             && carForm.get('motor')?.touched
@@ -86,10 +89,23 @@
         [ngStyle]="{ color: 'red'}">Rellene el campo</p>
 
         <label>Carrocería</label>
-        <input
-            type="text"
+        <select
             formControlName="carroceria"
         >
+        <option default value="Seleccione opción"></option>
+        <option>Urbano</option>
+        <option>Sedán</option>
+        <option>Hatchback</option>
+        <option>Descapotable</option>
+        <option>Coupe</option>
+        <option>Deportivo</option>
+        <option>Monovolumen</option>
+        <option>Todoterreno</option>
+        <option>Suv</option>
+        <option>Roadster</option>
+        <option>Pickup</option>
+        <option>Furgoneta</option>
+        </select>
         <p
             *ngIf="!carForm.get('carroceria')?.valid
             && carForm.get('carroceria')?.touched
@@ -118,5 +134,11 @@
             [ngStyle]="{ color: 'red'}">Rellene el campo</p>
 
     </div>
+
+    <button
+        type="submit"
+        [disabled]="!carForm.valid"
+    >Crear coche
+    </button>
     
 </form>
