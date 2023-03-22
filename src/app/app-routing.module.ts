@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+
 import { RouterModule, Routes } from "@angular/router";
 
 
@@ -11,6 +12,12 @@ const routes: Routes = [
     {
         path: 'home',
         loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
+    },
+    {
+        path: 'cars-list', loadChildren: () => import("./pages/cars-list/cars-list.module").then( m => m.CarsListModule)
+    },
+    {
+        path: 'cars-detail/:id', loadChildren: () => import("./pages/cars-detail/cars-detail.module").then( m => m.CarsDetailModule)
     },
     {
         path: 'concesionario-list',
@@ -26,6 +33,7 @@ const routes: Routes = [
         path: '**',
         loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule)
     }
+
 ];
 
 @NgModule({
