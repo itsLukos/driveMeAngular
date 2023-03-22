@@ -1,15 +1,8 @@
-<p>Listado de coches</p>
+<h1>Coches</h1>
 
-<div *ngFor="let car of cars">
-
-    <p>{{ car.id }}</p>
-    <p>Marca: {{ car.marca }}</p>
-    <p>Modelo: {{ car.modelo }}</p>
-    <p>Nuevo: {{ car.nuevo }}</p>
-    <p>Motor: {{ car.motor }}</p>
-    <p>Transmision: {{ car.transmision }}</p>
-    <p>Cilindrada: {{ car.cilindrada }}</p>
-    <p>Carrocería: {{ car.carroceria }}</p>
-    <p>Precio: {{ car.precio }}</p>
-    <p>Conesionario: {{ car.concesionario }}</p>
+<div>
+    <app-cars
+        *ngFor="let carsEl of cars"
+        [cars]="carsEl">
+    </app-cars>
 </div>
