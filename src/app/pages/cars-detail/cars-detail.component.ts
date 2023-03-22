@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { cars } from './../../core/service/cars/cars.data';
+import { cars } from '../../core/services/cars/cars.data';
 import { ActivatedRoute } from '@angular/router';
-import { Cars } from './../../core/service/cars/cars.model'
+import { Cars } from '../../core/services/cars/cars.model'
 
 
 

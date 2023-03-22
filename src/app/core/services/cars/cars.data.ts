@@ -1,4 +1,4 @@
-import { Cars } from "./cars.model";
+import { Cars } from "../../services/cars/cars.model";
 
 export const cars: Cars[] = [
     {
