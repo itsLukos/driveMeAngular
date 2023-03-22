@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { ConcesionarioListModule } from './concesionario-list/concesionario-list.module';
+
+
 
 @NgModule({
   declarations: [
@@ -10,7 +12,7 @@ import { ConcesionarioListModule } from './concesionario-list/concesionario-list
   ],
   imports: [
     BrowserModule,
-    ConcesionarioListModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
