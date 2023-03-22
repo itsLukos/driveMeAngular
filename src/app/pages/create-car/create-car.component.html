@@ -1,0 +1,122 @@
+<form
+    *ngIf="carForm"
+    (submit)="createNewCar()"
+    [formGroup]="carForm">
+
+    <div>
+        <label>Marca</label>
+        <input
+            type="text"
+            formControlName="marca"
+        >
+        <p
+            *ngIf="!carForm.get('marca')?.valid
+            && carForm.get('marca')?.touched
+            && carForm.get('marca')?.errors?.['required']"
+        [   ngStyle]="{ color: 'red'}">Rellene el campo</p>
+
+        <label>Modelo</label>
+        <input
+            type="text"
+            formControlName="modelo"
+        >
+        <p
+            *ngIf="!carForm.get('modelo')?.valid
+            && carForm.get('modelo')?.touched
+            && carForm.get('modelo')?.errors?.['required']"
+            [ngStyle]="{ color: 'red'}">Rellene el campo</p>
+
+        <label>Nuevo</label>
+        <input
+            type="text"
+            formControlName="nuevo"
+        >
+        <p
+            *ngIf="!carForm.get('nuevo')?.valid
+            && carForm.get('nuevo')?.touched
+            && carForm.get('nuevo')?.errors?.['required']"
+            [ngStyle]="{ color: 'red'}">Rellene el campo</p>
+
+        <select
+            formControlName="concesionario"
+        >
+            <option default value="Seleccione opción">Concesionario</option>
+            <option
+                *ngFor="let concesionario of concesionarios"
+                [value]="concesionario"
+            >{{ concesionario }}</option>
+        </select>
+        <p
+            *ngIf="!carForm.get('concesionario')?.valid
+            && carForm.get('concesionario')?.touched
+            && carForm.get('concesionario')?.errors?.['required']"
+            [ngStyle]="{ color: 'red'}">Seleccione una opción</p>
+
+        <label>Tipo de motor</label>
+        <input
+            type="text"
+            formControlName="motor"
+        >
+        <p
+            *ngIf="!carForm.get('motor')?.valid
+            && carForm.get('motor')?.touched
+            && carForm.get('motor')?.errors?.['required']"
+            [ngStyle]="{ color: 'red'}">Rellene el campo</p>
+
+        <label>Tipo de transmisión</label>
+        <input
+            type="text"
+            formControlName="transmision"
+        >
+        <p
+            *ngIf="!carForm.get('transmision')?.valid
+            && carForm.get('transmision')?.touched
+            && carForm.get('transmision')?.errors?.['required']"
+            [ngStyle]="{ color: 'red'}">Rellene el campo</p>
+
+        <label>Cilindrada</label>
+        <input
+            type="number"
+            formControlName="cilindrada"
+        >
+        <p
+            *ngIf="!carForm.get('cilindrada')?.valid
+            && carForm.get('cilindrada')?.touched
+            && carForm.get('cilindrada')?.errors?.['required']"
+        [ngStyle]="{ color: 'red'}">Rellene el campo</p>
+
+        <label>Carrocería</label>
+        <input
+            type="text"
+            formControlName="carroceria"
+        >
+        <p
+            *ngIf="!carForm.get('carroceria')?.valid
+            && carForm.get('carroceria')?.touched
+            && carForm.get('carroceria')?.errors?.['required']"
+            [ngStyle]="{ color: 'red'}">Rellene el campo</p>
+
+        <label>Precio</label>
+        <input
+            type="text"
+            formControlName="precio"
+        >
+        <p
+            *ngIf="!carForm.get('precio')?.valid
+            && carForm.get('precio')?.touched
+            && carForm.get('precio')?.errors?.['required']"
+            [ngStyle]="{ color: 'red'}">Rellene el campo</p>
+
+        <input
+            type="text"
+            formControlName="imagen"
+        >
+        <p
+            *ngIf="!carForm.get('imagen')?.valid
+            && carForm.get('imagen')?.touched
+            && carForm.get('imagen')?.errors?.['required']"
+            [ngStyle]="{ color: 'red'}">Rellene el campo</p>
+
+    </div>
+    
+</form>
