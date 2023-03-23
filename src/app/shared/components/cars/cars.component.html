@@ -1,0 +1,12 @@
+<div
+    *ngIf="cars"
+>
+
+<div >
+
+    <p>{{ cars.id }}</p>
+    <p>Marca: {{ cars.marca }}</p>
+    <p>Modelo: {{ cars.modelo }}</p>
+    
+    <button (click)="navigateToDetail()" >Mas informacion</button>
+</div>
