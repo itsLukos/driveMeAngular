@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { Cars } from 'src/app/core/services/cars/cars.model';
 import { Router } from '@angular/router';
+import { Cars } from './../../../core/services/cars/cars.model';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-cars',
