@@ -67,10 +67,14 @@
             [ngStyle]="{ color: 'red'}">Rellene el campo</p>
 
         <label>Tipo de transmisión</label>
-        <input
+        <select
             type="text"
             formControlName="transmision"
         >
+        <option default value="Seleccione opción"></option>
+        <option>Automatico</option>
+        <option>Manual</option>
+        </select>
         <p
             *ngIf="!carForm.get('transmision')?.valid
             && carForm.get('transmision')?.touched
@@ -123,14 +127,15 @@
             && carForm.get('precio')?.errors?.['required']"
             [ngStyle]="{ color: 'red'}">Rellene el campo</p>
 
+        <label>Foto</label>
         <input
             type="text"
-            formControlName="imagen"
+            formControlName="foto"
         >
         <p
-            *ngIf="!carForm.get('imagen')?.valid
-            && carForm.get('imagen')?.touched
-            && carForm.get('imagen')?.errors?.['required']"
+            *ngIf="!carForm.get('foto')?.valid
+            && carForm.get('foto')?.touched
+            && carForm.get('foto')?.errors?.['required']"
             [ngStyle]="{ color: 'red'}">Rellene el campo</p>
 
     </div>
@@ -138,7 +143,8 @@
     <button
         type="submit"
         [disabled]="!carForm.valid"
-    >Crear coche
+    >
+        {{ canEdit ? 'Editar coche' : 'Crear coche' }}
     </button>
     
 </form>
