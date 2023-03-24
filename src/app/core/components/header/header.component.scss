@@ -1,0 +1,100 @@
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/lato/v23/S6uyw4BMUTPHjxAwXjeu.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/lato/v23/S6uyw4BMUTPHjx4wXg.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+header {
+    width: 100%;
+    height: 175px;
+}
+
+.barra {
+    margin-left: 0;
+    width: 100%;
+    height: calc(100% - 75px);
+    background-size: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background-color: #50b8d2;
+    font: 400 10px "Lato", sans-serif;
+    opacity: 0.95;
+    overflow: hidden;
+    box-shadow:1px 3px 4px;
+
+}
+
+ul {
+    padding: 0;
+    margin: 0; 
+}
+
+ul li {
+    padding: 10px 0 10px 0;
+    height: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;  
+}
+.atr {
+    padding: 15px;
+    transition: all 0.5s ease-out;
+    cursor: pointer;
+    letter-spacing: 3.5px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+.atr:hover {
+    transform: scale(1.1);
+    color: orange;
+
+}
+
+.hidden {
+    visibility: hidden
+}
+
+.form-control {
+    border-radius: 5px;
+    margin: 15px;
+    margin-top: 0;
+    width: 300px;
+}
+.btn {
+    margin-right:10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    color:  #50b8d2;
+    background-color: black;
+    text-transform: uppercase;
+    font-weight: bolder;
+    text-decoration: none;
+}
+.btn:hover {
+    color: white;
+    background-color: orange;
+
+}
