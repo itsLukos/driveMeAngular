@@ -11,6 +11,7 @@ export class CreateCarComponent {
 
   //Grupo de campos que componen el formulario
   public carForm?: FormGroup;
+  public isCarCreated: boolean = false;
   
 
   constructor(

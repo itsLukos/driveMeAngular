@@ -6,7 +6,7 @@ import { ReplaySubject } from 'rxjs';
 })
 export class AuthService {
 
-  public userLogged$: ReplaySubject<boolean> = new ReplaySubject<boolean>();
+  public userLogged$: ReplaySubject<boolean> = new ReplaySubject<boolean>(1);
 
   constructor() { 
 
