@@ -1,26 +1,25 @@
+// * {
+//     margin: 0;
+//     padding: 0;
+//     text-decoration: none;
+// }
 footer {
-    margin-top: 25px;
-}
-* {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
+    margin-bottom: -2em;
 }
 .all {
     width: 100%;
-    padding: 10px 40% 10px 40% ;
+    padding: 10px 25% 10px 25% ;
     list-style-type: none;
-    font-size: 62.5%;
     margin-right: auto;
     margin-left: auto;
     background-color: rgb(0, 0, 0);
+    
 }
 .wrap {
-    
     color: white;
     display: flex;
     flex-direction: row;
-    
+    margin-bottom: 10px;
 }
 
 .col {
@@ -29,16 +28,19 @@ footer {
     height: 10px;
     text-align: center;
     text-decoration: none;
-    height: 150px;
+    height: auto;
+    margin-bottom: 0;
     
 }
-
+h2 {
+    font-size: large;
+}
 a {
     outline: none;
     list-style: none;
   text-decoration: none;
   color: white;
-  font-size:medium;
+  font-size: small;
 }
 a:hover {
     color: orange;
@@ -50,16 +52,18 @@ a:hover {
 .cont {
     padding: 15px;
     margin: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
     font-weight: bolder;
     text-align: left ;
     outline: none;
     list-style: none;
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .vars_group {
     padding: 10px;
     font-style: italic;
-    font-size: smaller;
+    font-size: xx-small;
     color: rgb(139, 139, 135);
 }
