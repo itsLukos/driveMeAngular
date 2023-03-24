@@ -36,6 +36,7 @@ const routes: Routes = [
         path: 'create-car',
         loadChildren: () => import('./pages/create-car/create-car.module').then(m => m.CreateCarModule)
     },
+    git
     //Acepta cualquier ruta
     {
         path: '**',
