@@ -1,3 +1,4 @@
+import { Cars } from './../cars.model';
 import { ApiCars } from './api-cars.model';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
@@ -29,5 +30,15 @@ export class ApiCarsService {
   //endpoint de detalle de coches
   public getCarDetail(id: string): Observable<ApiCars> {
     return this.http.get<ApiCars>(`${API_CARS_URL}/cars/${id}`)
+  }
+
+  //endpoint para crear coches
+  public createApiCar(body: Cars): Observable<ApiCars> {
+    return this.http.post<ApiCars>(`${API_CARS_URL}/cars`, body)
+  }
+
+  //endpoint para editar
+  public editApiCar(id: string, body: Cars): Observable<ApiCars> {
+    return this.http.put<ApiCars>(`${API_CARS_URL}/cars/${id}`, body)
   }
 }

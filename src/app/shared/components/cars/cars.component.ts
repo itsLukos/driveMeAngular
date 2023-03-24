@@ -22,4 +22,10 @@ export class CarsComponent {
     }
   }
 
+  public editCar() {
+    this.router.navigate(['create-car'], { queryParams: {
+      id: this.cars?._id
+    }})
+  }
+
 }

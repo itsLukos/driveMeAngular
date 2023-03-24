@@ -38,4 +38,18 @@ export class CarsService {
       map(car => transformData(car))
     )
   }
+
+  //funcion para crear nuevo coche
+  public createCar(body: Cars): Observable<Cars> {
+    return this.apiCarsSercice.createApiCar(body).pipe(
+      map((car) => transformData(car))
+    )
+  }
+
+  //endpoint para modificar coches
+  public editCar(id:string, body: Cars): Observable<Cars> {
+    return this.apiCarsSercice.editApiCar(id, body).pipe(
+      map((car) => transformData(car))
+    )
+  }
 }
