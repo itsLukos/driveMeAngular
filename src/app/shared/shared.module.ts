@@ -1,19 +1,22 @@
 import { RouterModule } from '@angular/router';
+import { CarsListModule } from './../pages/cars-list/cars-list.module';
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CarsComponent } from './components/cars/cars.component';
 
-import { CarsDetailRoutingModule } from './cars-detail-routing.module';
-import { CarsDetailComponent } from './cars-detail.component';
 
 
 @NgModule({
   declarations: [
-    CarsDetailComponent
+    CarsComponent
   ],
   imports: [
     CommonModule,
-    CarsDetailRoutingModule,
     RouterModule
+  ],
+  exports: [
+    CarsComponent
   ]
 })
-export class CarsDetailModule { }
+export class SharedModule { }
