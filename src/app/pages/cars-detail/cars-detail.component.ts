@@ -1,6 +1,8 @@
+import { CarsService } from './../../core/services/cars/cars.service';
+import { ApiCars } from './../../core/services/cars/api/api-cars.model';
 import { Component } from '@angular/core';
-import { cars } from '../../core/services/cars/cars.data';
-import { ActivatedRoute } from '@angular/router';
+
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cars } from '../../core/services/cars/cars.model'
 
 
@@ -15,15 +17,26 @@ export class CarsDetailComponent {
   public cars?: Cars;
 
   constructor(
+    //activatedroute para coger los params de la ruta
     private activatedRoute: ActivatedRoute,
-    
+    //servicio http
+    private carsService: CarsService,
+    private router: Router
   ) {
-
-    this.activatedRoute.params.subscribe((params) => {
-      const carId = params['id'];
-      this.cars = cars.find((car) => carId===car.id.toString())
+    this.activatedRoute.queryParams.subscribe((queryParams) => {
+      console.log(queryParams)
+    })
+  this.activatedRoute.params.subscribe((params) => {
+    const carId = params['id'];
+    this.carsService.getCarDetail(carId).subscribe((car) => {
+      this.cars = car
+    })
       
     });
   }
 
+  //funcion para volver a el listado de coches
+  public navigateToCarsList() {
+    this.router.navigate(['cars-list'])
+  }
 }

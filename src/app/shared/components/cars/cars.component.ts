@@ -1,5 +1,6 @@
+import { Cars } from 'src/app/core/services/cars/cars.model';
 import { Router } from '@angular/router';
-import { Cars } from './../../../core/services/cars/cars.model';
+import { ApiCars } from '../../../core/services/cars/api/api-cars.model';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -17,7 +18,7 @@ export class CarsComponent {
 
   public navigateToDetail() {
     if (this.cars) {
-      this.router.navigate(['cars-detail', this.cars.id])
+      this.router.navigate(['cars-detail', this.cars._id])
     }
   }
 

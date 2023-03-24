@@ -16,6 +16,9 @@ import { RouterModule } from '@angular/router';
     CarsListRoutingModule,
     RouterModule,
     SharedModule
+  ],
+  exports: [
+    CarsListComponent
   ]
 })
 export class CarsListModule { }

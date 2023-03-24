@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -11,7 +12,8 @@ import { CarsDetailComponent } from './cars-detail.component';
   ],
   imports: [
     CommonModule,
-    CarsDetailRoutingModule
+    CarsDetailRoutingModule,
+    RouterModule
   ]
 })
 export class CarsDetailModule { }

@@ -1,6 +1,7 @@
-import { Concesionario } from './../concesionarios/concesionario.models';
+import { Concesionario } from './../../concesionarios/concesionario.models';
 
-export interface Cars {
+
+export interface ApiCars {
     marca: string,
     modelo: string,
     nuevo: string,
@@ -10,6 +11,9 @@ export interface Cars {
     carroceria: CarroceriaCar,
     precio: number,
     foto: string,
+    __v?: number,
+    createdAt?: string,
+    updatedAt?: string,
     concesionario: Concesionario[],
     _id: string
 }
@@ -37,3 +41,4 @@ export type CarroceriaCar =
 export type TransmisionCar =
 'Automatica'
 | 'Manual';
+
