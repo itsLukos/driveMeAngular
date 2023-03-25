@@ -15,9 +15,11 @@ export class CreateCarComponent {
 
   //Grupo de campos que componen el formulario
   public carForm?: FormGroup;
+  public isCarCreated: boolean = false;
   public canEdit: boolean = false;
   public carId?: string;
-  public isProductCreated: boolean = false;
+ public isProductCreated: boolean = false;
+
 
   constructor(
     private fb: FormBuilder,
@@ -81,6 +83,7 @@ export class CreateCarComponent {
       ? this.carsService.editCar(this.carId, this.carForm?.value)
       : this.carsService.createCar(this.carForm?.value);
     carRequest.subscribe(() => {
+      this.isCarCreated = true;
       this.carForm?.reset();
       this.router.navigate(['cars-list'])
     })
