@@ -1,4 +1,6 @@
-import { Concesionario } from './../../concesionarios/concesionario.models';
+import { Concesionario } from 'src/app/core/services/concesionarios/concesionario.models';
+import { ApiConcesionario } from './../../concesionarios/api/api-concesionarios.model';
+
 
 
 export interface ApiCars {
@@ -14,7 +16,7 @@ export interface ApiCars {
     __v?: number,
     createdAt?: string,
     updatedAt?: string,
-    concesionario: Concesionario[],
+    concesionario: ApiConcesionario,
     _id: string
 }
 

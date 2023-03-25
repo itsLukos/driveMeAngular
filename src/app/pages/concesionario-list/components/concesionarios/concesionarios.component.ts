@@ -1,3 +1,4 @@
+import { ConcesionariosService } from './../../../../core/services/concesionarios/concesionarios.service';
 import { Concesionario } from 'src/app/core/services/concesionarios/concesionario.models';
 import { Router } from '@angular/router';
 import { Component, Input } from '@angular/core';
@@ -12,14 +13,19 @@ export class ConcesionariosComponent {
 
   @Input() public concesionario?: Concesionario;
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    
+    ) {
 
   }
 
+
+  
   //Función para ir al detalle
   public navigateToDetail() {
     if (this.concesionario) {
-      this.router.navigate(['concesionario-detail', this.concesionario.id])
+      this.router.navigate(['concesionario-detail', this.concesionario._id])
     }
   }
 
