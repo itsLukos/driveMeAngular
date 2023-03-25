@@ -1,7 +1,8 @@
 import { NgModule } from "@angular/core";
-
 import { RouterModule, Routes } from "@angular/router";
 import { AuthGuard } from "./core/guards/auth.guard";
+import { ExitGuard } from "./core/guards/exit.guard";
+import { RequestCarResolver } from "./core/resolvers/request-car.resolver";
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
     },
     {
         path: 'cars-detail/:id',
-        loadChildren: () => import("./pages/cars-detail/cars-detail.module").then( m => m.CarsDetailModule)
+        loadChildren: () => import("./pages/cars-detail/cars-detail.module").then( m => m.CarsDetailModule),
+        resolve: [RequestCarResolver]
     },
     {
         path: 'concesionario-list',

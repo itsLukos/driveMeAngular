@@ -26,14 +26,20 @@ export class CarsDetailComponent {
     this.activatedRoute.queryParams.subscribe((queryParams) => {
       console.log(queryParams)
     })
-  this.activatedRoute.params.subscribe((params) => {
+    this.activatedRoute.params.subscribe((params) => {
     const carId = params['id'];
     this.carsService.getCarDetail(carId).subscribe((car) => {
       this.cars = car
     })
       
     });
-  }
+
+    this.activatedRoute.data.subscribe((data) => {
+      if (data[0]) {
+        this.cars = data[0];
+      }
+    })
+  } 
 
   //funcion para volver a el listado de coches
   public navigateToCarsList() {

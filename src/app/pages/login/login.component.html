@@ -1,2 +1,15 @@
-<button
-    (click)="loginUser()">Login</button>
+<form
+    *ngIf="userForm"
+    [formGroup]="userForm"
+    (submit)="loginUser()"
+>
+    <input placeholder="Email" formControlName="email">
+    <input placeholder="Contraseña" type="password" formControlName="password">
+    <button type="submit">Login</button>
+</form>
+
+<p
+    style="color: red;"
+    *ngIf="formError">
+{{ formError }}</p>
+
