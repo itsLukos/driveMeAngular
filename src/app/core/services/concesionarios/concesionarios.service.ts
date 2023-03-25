@@ -20,9 +20,7 @@ export class ConcesionariosService {
         return apiConcesionarios.map((apiConcesionario) => ({
           _id: apiConcesionario._id,
           nombre: apiConcesionario.nombre,
-          ccaa: apiConcesionario.ccaa,
-          email: apiConcesionario.email,
-          password: apiConcesionario.password,
+          ccaa: apiConcesionario.ccaa,         
           direccion: apiConcesionario.direccion,
           telefono: apiConcesionario.telefono,
           coches: apiConcesionario.coches
