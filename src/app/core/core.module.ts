@@ -1,3 +1,6 @@
+import { FooterComponent } from './components/footer/footer.component';
+
+import { HeaderComponent } from './components/header/header.component';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -6,9 +9,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoadingComponent } from './components/loading/loading.component';
 
 
+
 @NgModule({
   declarations: [
     LoadingComponent,  
+    HeaderComponent,
+    FooterComponent
+    
   ],
   imports: [
     CommonModule,
@@ -16,8 +23,9 @@ import { LoadingComponent } from './components/loading/loading.component';
     ReactiveFormsModule
   ],
   exports: [
-    
-    LoadingComponent
+    HeaderComponent,
+    LoadingComponent,
+    FooterComponent
   ],
   providers: [
     
