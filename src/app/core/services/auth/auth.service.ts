@@ -68,5 +68,4 @@ export class AuthService {
   public getCarsById(): Observable<unknown> {
     return this.http.get<unknown>(`${CAR_URL}/641aeae5034f1a6c41ef6b22`);
   }
-
 }
