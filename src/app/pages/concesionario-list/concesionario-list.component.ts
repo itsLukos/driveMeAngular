@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { concesionarios } from 'src/app/core/services/concesionarios/concesionario.data';
+import { ConcesionariosService } from './../../core/services/concesionarios/concesionarios.service';
+import { Concesionario } from 'src/app/core/services/concesionarios/concesionario.models';
+import { Component, OnInit } from '@angular/core';
+
 
 
 @Component({
@@ -7,9 +9,19 @@ import { concesionarios } from 'src/app/core/services/concesionarios/concesionar
   templateUrl: './concesionario-list.component.html',
   styleUrls: ['./concesionario-list.component.css']
 })
-export class ConcesionarioListComponent {
+export class ConcesionarioListComponent implements OnInit{
 
   //Creamos una variable pública para acceder a los concesinarios desde HTML
-  public concesionarios = concesionarios
+  public concesionarios?: Concesionario[] = [];
 
+
+  constructor(
+    private concesionariosService: ConcesionariosService
+  ) {}
+
+  public ngOnInit() {
+    this.concesionariosService.getConcesionarios().subscribe((concesionariosFromApi) => {
+      this.concesionarios = concesionariosFromApi
+    })
+  }
 }

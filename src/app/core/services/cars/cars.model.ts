@@ -1,3 +1,4 @@
+import { ApiConcesionario } from './../concesionarios/api/api-concesionarios.model';
 import { Concesionario } from './../concesionarios/concesionario.models';
 
 export interface Cars {
@@ -10,7 +11,7 @@ export interface Cars {
     carroceria: CarroceriaCar,
     precio: number,
     foto: string,
-    concesionario: Concesionario[],
+    concesionario: Concesionario,
     _id: string
 }
 

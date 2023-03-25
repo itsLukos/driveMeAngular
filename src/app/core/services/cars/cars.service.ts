@@ -1,5 +1,7 @@
+import { ConcesionariosService } from './../concesionarios/concesionarios.service';
+
 import { ApiCars } from './api/api-cars.model';
-import { map, Observable } from 'rxjs';
+import { forkJoin, map, Observable } from 'rxjs';
 import { ApiCarsService } from './api/api-cars.service';
 import { Injectable } from '@angular/core';
 import { Cars } from './cars.model';
@@ -12,7 +14,8 @@ export class CarsService {
 
   constructor(
     //llamamos al servicio que trae los datos de la api
-    private apiCarsSercice: ApiCarsService
+    private apiCarsSercice: ApiCarsService,
+    private concesionariosService: ConcesionariosService
   ) { }
 
 
@@ -34,8 +37,14 @@ export class CarsService {
 
   //funcion para traer por id
   public getCarDetail(id: string): Observable<Cars> {
-    return this.apiCarsSercice.getCarDetail(id).pipe(
-      map(car => transformData(car))
+    return forkJoin([
+      this.apiCarsSercice.getCarDetail(id),
+      this.concesionariosService.getConcesionarios()
+    ]).pipe(
+      map(([apiCar, concesionarios]) => {
+        const selectedConcesionario = concesionarios.find((concesionario) => concesionario._id === apiCar.concesionario._id);
+        return transformData(apiCar, selectedConcesionario)
+      })
     )
   }
 
