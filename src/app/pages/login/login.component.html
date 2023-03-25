@@ -1,6 +1,6 @@
 <form
-    *ngIf="userForm"
-    [formGroup]="userForm"
+    *ngIf="loginForm"
+    [formGroup]="loginForm"
     (submit)="loginUser()"
 >
     <input placeholder="Email" formControlName="email">
