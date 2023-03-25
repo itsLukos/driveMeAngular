@@ -4,8 +4,6 @@ export interface ApiConcesionario {
     _id: string;
     nombre: string;
     ccaa: string;
-    email: string;
-    password: string;
     direccion: string;
     telefono: number;
     //quitar corchetes

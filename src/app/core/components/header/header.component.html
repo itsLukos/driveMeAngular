@@ -1,28 +1,27 @@
-<link rel="stylesheet" href="header.component.scss">
+
 <header class="p-3 bg-dark text-white">
   <div class="container">
     <ul class="barra">
-      <li><a href="#" class="atr">Home</a></li>
-      <li><a href="#" class="atr">Concesionarios</a></li>
-      <li><a href="#" class="atr">Coches</a></li>
-      <li><a href="#" class="atr hidden">Favoritos</a></li>
-      <li><a href="#" class="atr hidden">Favoritos</a></li>
-      <li><a href="#" class="atr">About</a></li>
+
+      
+      <li><a href="#" class="atr" [routerLink]="['home']">Home</a></li>
+      <li><a href="#" class="atr" [routerLink]="['concesionario-list']">Concesionarios</a></li>
+      <li><a href="#" class="atr" [routerLink]="['cars-list']">Coches</a></li>
+      <li><a href="#" class="atr hidden" [routerLink]="['account']">Favoritos</a></li>
       <li>
         <form class="busqueda">
           <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
         </form>
       </li>
       <li>
-        <button type="button" class="btn">Login</button>
+        <button type="button" class="btn" [routerLink]="['login']">Login</button>
       </li>
       <li>
-        <button type="button" class="btn">Sign-up</button>
+        <button type="button" class="btn" [routerLink]="['create-user']">Sign-up</button>
       </li>
-  </div>
-  </li>
+  
 
-  </ul>
+    </ul>
 
 
 

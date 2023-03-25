@@ -3,21 +3,12 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
-  selector: 'header-component',
+  selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
-  title = 'driveMeAngular';
 
-  public isLogged: boolean = false;
+export class HeaderComponent {
 
-  constructor(
-    private router: Router,
-    private auth: AuthService
-  ) {}
-
-  public ngOnInit(): void {
-      this.auth.userLogged$.subscribe((isLogged) => this.isLogged = isLogged);
-  }
 }
+
