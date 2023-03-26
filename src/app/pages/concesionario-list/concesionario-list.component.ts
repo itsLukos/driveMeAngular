@@ -12,7 +12,10 @@ import { Component, OnInit } from '@angular/core';
 export class ConcesionarioListComponent implements OnInit{
 
   //Creamos una variable pública para acceder a los concesinarios desde HTML
-  public concesionarios?: Concesionario[] = [];
+  public concesionarios: Concesionario[] = [];
+
+  
+  public pages: number = 1;
 
 
   constructor(

@@ -1,3 +1,4 @@
+import { NgxPaginationModule } from 'ngx-pagination';
 import { ConcesionariosModule } from './components/concesionarios/concesionarios.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -17,7 +18,8 @@ import { RouterModule } from '@angular/router'
     CommonModule,
     ConcesionarioListRoutingModule,
     RouterModule,
-    ConcesionariosModule
+    ConcesionariosModule,
+    NgxPaginationModule
   ]
 })
 export class ConcesionarioListModule { }

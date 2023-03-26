@@ -1,10 +1,26 @@
 <h1>Coches</h1>
+<div
+class="pagination__container"
+>
+    <pagination-controls 
+        class="pagination"
+        (pageChange)="pages = $event"
+    ></pagination-controls>
 <input placeholder="Filtrar por marca" [(ngModel)]="carMarca">
 <div>
     <app-cars
-        *ngFor="let car of cars | filter:carMarca:concesionarioNombre " 
+        *ngFor="let car of cars | filter:carMarca:concesionarioNombre | paginate: {itemsPerPage: 10, currentPage: pages} " 
         [cars]="car"
     >
 
     </app-cars>
+
+    <div
+    class="pagination__container"
+>
+    <pagination-controls 
+        class="pagination"
+        (pageChange)="pages = $event"
+    ></pagination-controls>
+    
 </div>

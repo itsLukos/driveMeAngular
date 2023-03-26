@@ -19,6 +19,8 @@ export class CarsListComponent implements OnInit{
   public carMarca: string = '';
   public concesionarioNombre?: Concesionario;
 
+  public pages: number = 1;
+
 
   constructor(
     //llamamos al servicio que nos trae los coches
