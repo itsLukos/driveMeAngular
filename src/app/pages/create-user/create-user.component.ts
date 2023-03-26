@@ -1,3 +1,4 @@
+import { IUser } from './../../core/services/auth/models/auth.models';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
@@ -15,6 +16,7 @@ export class CreateUserComponent {
   public canEdit: boolean = false;
   public userId?: string;
   public isUserCreated: boolean = false;
+  public userError?: string;
   
   constructor(
     private fb: FormBuilder,
@@ -34,9 +36,17 @@ export class CreateUserComponent {
   }
 
   public createNewUser() {
-    this.authService.createUser(this.userForm?.value).subscribe(() => {
-      this.userForm?.reset();
-      this.router.navigate(['car-list'])
-    });
+    if(!this.userForm?.valid) {return}
+    const userRegister: IUser = this.userForm?.value;
+    this.authService.register(userRegister).subscribe({
+      next: (res) => {
+        res;
+        this.router.navigate(['home']);
+      },
+      error: (err) => {
+        //this.userError = err.error;
+        this.userForm?.reset();
+      }
+    })
   }
 }
