@@ -18,7 +18,7 @@ export class CreateCarComponent {
   public isCarCreated: boolean = false;
   public canEdit: boolean = false;
   public carId?: string;
- public isProductCreated: boolean = false;
+  public isProductCreated: boolean = false;
 
 
   constructor(
