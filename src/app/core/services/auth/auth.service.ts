@@ -60,7 +60,7 @@ export class AuthService {
     return authToken ? JSON.parse(authToken)?.token : null;
   }
 
-  public createUser(body: IUser): Observable<IUser> {
-    return this.http.post<IUser>(`${AUTH_URL}/register`, body)
-  }
+  // public createUser(body: IUser): Observable<IUser> {
+  //   return this.http.post<IUser>(`${AUTH_URL}/register`, body)
+  // }
 }
