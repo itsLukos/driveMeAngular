@@ -1,6 +1,8 @@
-<!-- <form
-    *ngIf="userForm"
-    [formGroup]="userForm"
+
+<form
+    *ngIf="loginForm"
+    [formGroup]="loginForm"
+
     (submit)="loginUser()"
 >
     <input placeholder="Email" formControlName="email">
@@ -11,5 +13,5 @@
 <p
     style="color: red;"
     *ngIf="formError">
-{{ formError }}</p> -->
+{{ formError }}
 
