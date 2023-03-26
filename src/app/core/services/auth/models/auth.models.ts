@@ -18,7 +18,7 @@ export interface IUserSignInResponse {
     token: string;
 }
 
-export type RoleUser =
+export type RoleUser = 
 'buyer' | 'seller';
 
 export enum AuthError {

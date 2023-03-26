@@ -9,7 +9,7 @@ class="pagination__container"
 <input placeholder="Filtrar por marca" [(ngModel)]="carMarca">
 <div>
     <app-cars
-        *ngFor="let car of cars | filter:carMarca:concesionarioNombre | paginate: {itemsPerPage: 10, currentPage: pages} " 
+        *ngFor="let car of cars | filter : carMarca | paginate: {itemsPerPage: 10, currentPage: pages} " 
         [cars]="car"
     >
 
