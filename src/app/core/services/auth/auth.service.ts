@@ -1,3 +1,4 @@
+import { Cars } from 'src/app/core/services/cars/cars.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
@@ -6,6 +7,8 @@ import { AuthError, IUser, IUserSignInResponse } from './models/auth.models';
 
 const AUTH_URL = 'https://drive-ddl3m20q4-rubenprada89-outlookcom.vercel.app/user';
 const TOKEN_KEY = 'user-token';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -59,8 +62,16 @@ export class AuthService {
     const authToken = localStorage.getItem(TOKEN_KEY);
     return authToken ? JSON.parse(authToken)?.token : null;
   }
+  
+  //endpoint para añadir a favoritos
+  public sendToFavoritosApi(userId: string, carId: string): Observable<IUser> {
+    const body = {
 
-  // public createUser(body: IUser): Observable<IUser> {
-  //   return this.http.post<IUser>(`${AUTH_URL}/register`, body)
-  // }
+      "carId": carId,
+      "userId": userId
+      
+    
+    }
+    return this.http.put<IUser>(`${AUTH_URL}/addFavoriteCar`, body)
+  }
 }

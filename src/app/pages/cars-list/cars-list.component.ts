@@ -17,7 +17,7 @@ export class CarsListComponent implements OnInit{
 
   //variables para el filtro
   public carMarca: string = '';
-  public concesionarioNombre?: Concesionario;
+  
 
   public pages: number = 1;
 
@@ -30,7 +30,7 @@ export class CarsListComponent implements OnInit{
   public ngOnInit() {
     this.carsService.getCars().subscribe((carsFromApi) => {
       this.cars = carsFromApi;
-      console.log(carsFromApi)
+      
     })
   };
 

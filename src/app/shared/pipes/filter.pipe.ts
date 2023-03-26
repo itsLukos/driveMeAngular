@@ -7,12 +7,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(value: Cars[] | null, marca: string = '', concesionarios?: Concesionario): Cars[] {
+  transform(value: Cars[] | null, marca: string = ''): Cars[] {
     if(!value) {return []}
-    if(!marca && !concesionarios) {return value}
+    if(!marca ) {return value}
     return value.filter((car) => {
       return car.marca.includes(marca)
-        && (car.concesionario.nombre === concesionarios?.nombre || !concesionarios)
+      
     })
   }
 
