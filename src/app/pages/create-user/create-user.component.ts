@@ -17,7 +17,7 @@ export class CreateUserComponent {
   public userId?: string;
   public isUserCreated: boolean = false;
   public userError?: string;
-  
+  public error:string="";
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
@@ -35,18 +35,42 @@ export class CreateUserComponent {
 
   }
 
-  public createNewUser() {
-    if(!this.userForm?.valid) {return}
-    const userRegister: IUser = this.userForm?.value;
-    this.authService.register(userRegister).subscribe({
+  // public createNewUser() {
+  //   if(!this.userForm?.valid) {return}
+  //   const userRegister: IUser = this.userForm?.value;
+  //   this.authService.register(userRegister).subscribe({
+  //     next: (res) => {
+  //       res;
+  //       this.router.navigate(['home']);
+  //     },
+  //     error: (err) => {
+  //       //this.userError = err.error;
+  //       this.userForm?.reset();
+  //     }
+  //   })
+  // }
+  public createNewUser(){   
+    if (!this.userForm?.valid) { return; }
+    const user: IUser = this.userForm.value;
+    this.authService.register(user).subscribe({
       next: (res) => {
-        res;
-        this.router.navigate(['home']);
+        this.userForm?.reset();
+        this.authService.loginJWT(user).subscribe({
+          next: (res) => {
+            this.userForm?.reset();
+            alert("Se han introducido correctamente los datos");
+            this.router.navigate(['home']);
+          },})        
       },
       error: (err) => {
-        //this.userError = err.error;
-        this.userForm?.reset();
-      }
-    })
-  }
+        if (err.status=500)
+        {
+          this.error="¿Te habías registrado antes? Parece que ya existe un usuario con ese email"
+        }
+        else{
+             this.error = err.error}
+        this.userForm?.reset();        
+      },
+    });
+   }
 }

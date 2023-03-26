@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/core/services/auth/auth.service';
+
 
 @Component({
   selector: 'app-account',
@@ -9,11 +9,8 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 export class AccountComponent {
 
   constructor(
-    private auth: AuthService,  
+     
   ) { }
 
-  public logoutUser() {
-    this.auth.logoutJWT();
-  }
-
+  
 }
