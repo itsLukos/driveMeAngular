@@ -26,6 +26,24 @@ export class LoginComponent {
   }
 
   public loginUser() {
+    if (!this.loginForm?.valid) { return; }
+    const user: IUser = this.loginForm.value;
+    this.auth.loginJWT(user).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.loginForm?.reset();
+      },
+      error: (err) => {
+        this.formError = err.error,
+        this.loginForm?.reset();
+      } ,    
+  });
+    this.router.navigate(['account']);
+  }
+
+ /* 
+
+  public loginUser() {
     if (!this.loginForm?.valid) { return ;}
     const user: IUser = this.loginForm?.value;
     this.auth.login(user).subscribe({
@@ -39,6 +57,6 @@ export class LoginComponent {
       },
     });
     this.router.navigate(['account']);
-  }
+  }*/
 
 }

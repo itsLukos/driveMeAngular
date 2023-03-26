@@ -15,6 +15,7 @@ export interface IUser {
 
 export interface IUserSignInResponse {
     user: IUser;
+    token: string;
 }
 
 export type RoleUser =
