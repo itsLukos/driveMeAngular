@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ApiCars } from '../../../core/services/cars/api/api-cars.model';
 import { Component, Input } from '@angular/core';
 
+
 @Component({
   selector: 'app-cars',
   templateUrl: './cars.component.html',
