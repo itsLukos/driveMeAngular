@@ -1,3 +1,4 @@
+import { NgxPaginationModule } from 'ngx-pagination';
 import { FilterPipe } from './../../shared/pipes/filter.pipe';
 import { SharedModule } from './../../shared/shared.module';
 import { NgModule } from '@angular/core';
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     CarsListRoutingModule,
     RouterModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   exports: [
     CarsListComponent

@@ -1,8 +1,11 @@
 <h1>Concesionarios</h1>
-
+    <pagination-controls 
+        class="pagination"
+        (pageChange)="pages = $event"
+    ></pagination-controls>
 <div class="concesionario-list">
     <app-concesionarios
-        *ngFor="let concesionarioEl of concesionarios"
+        *ngFor="let concesionarioEl of concesionarios | paginate: {itemsPerPage: 10, currentPage: pages} "
         [concesionario]="concesionarioEl">
     </app-concesionarios>
 </div>
