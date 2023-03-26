@@ -4,18 +4,6 @@
     [formGroup]="userForm">
 
     <div>
-        <label>Nombre de usuario</label>
-        <input
-            type="text"
-            formControlName="nombreUsuario"
-        >
-        <p
-            *ngIf="!userForm.get('nombreUsuario')?.valid
-            && userForm.get('nombreUsuario')?.touched
-            && userForm.get('nombreUsuario')?.errors?.['required']"
-            [ngStyle]="{ color: 'red'}"
-        >Rellene el campo</p>
-
         <label>Nombre</label>
         <input
             type="text"
@@ -40,9 +28,20 @@
             [ngStyle]="{ color: 'red'}"
         >Rellene el campo</p>
 
+        <label>Teléfono</label>
+        <input
+            type="number"
+            formControlName="telefono"
+        >
+        <p
+            *ngIf="!userForm.get('telefono')?.valid
+            && userForm.get('telefono')?.touched"
+            [ngStyle]="{ color: 'red'}"
+        >Rellene el campo</p>
+
         <label>Email</label>
         <input
-            type="text"
+            type="email"
             formControlName="email"
         >
         <p
@@ -54,7 +53,7 @@
 
         <label>Contraseña</label>
         <input
-            type="text"
+            type="password"
             formControlName="password"
         >
         <p
@@ -65,7 +64,22 @@
         >Introduzca al menos 8 caracteres</p>
     </div>
 
+    <label>Indica si eres comprador o un concesionario</label>
+        <select
+            formControlName="role"
+        >
+        <option>seller</option>
+        <option>buyer</option>
+        </select>
+        <p
+            *ngIf="!userForm.get('role')?.valid
+            && userForm.get('role')?.touched
+            && userForm.get('role')?.errors?.['required']"
+            [ngStyle]="{ color: 'red'}">Rellene el campo</p>
+
+
     <button
+        (click)="createNewUser()"
         type="submit"
         [disabled]="!userForm.valid"
     >Crear usuario

@@ -1,6 +1,7 @@
+import { LoadingService } from './../loading/loading.service';
 import { ApiConcesionario } from './api/api-concesionarios.model';
 import { Concesionario } from './concesionario.models';
-import { Observable, map } from 'rxjs';
+import { Observable, map, tap } from 'rxjs';
 import { ApiConcesionariosService } from './api/api-concesionarios.service';
 import { Injectable } from '@angular/core';
 import { transformConcesionario } from './helpers/concesionarios.helper';
@@ -11,10 +12,12 @@ import { transformConcesionario } from './helpers/concesionarios.helper';
 export class ConcesionariosService {
 
   constructor(
-    private apiConcesionariosService: ApiConcesionariosService
+    private apiConcesionariosService: ApiConcesionariosService,
+    private loadingService: LoadingService
   ) { }
 
   public getConcesionarios(): Observable<Concesionario[]> {
+    this.loadingService.showLoading();
     return this.apiConcesionariosService.getApiConcesionarios().pipe(
       map((apiConcesionarios: ApiConcesionario[]) => {
         return apiConcesionarios.map((apiConcesionario) => ({
@@ -26,7 +29,8 @@ export class ConcesionariosService {
           coches: apiConcesionario.coches
           
         }))
-      })
+      }),
+      tap(() => this.loadingService.hideLoading())
     )
   }
   public getConcesionarioDetail(id: string): Observable<Concesionario> {

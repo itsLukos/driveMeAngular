@@ -1,6 +1,9 @@
+
+
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { Cars } from 'src/app/core/services/cars/cars.model';
 import { Router } from '@angular/router';
-import { ApiCars } from '../../../core/services/cars/api/api-cars.model';
+
 import { Component, Input } from '@angular/core';
 
 
@@ -13,9 +16,17 @@ export class CarsComponent {
 
   @Input() public cars?: Cars;
 
-  constructor(private router: Router) {
 
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+  
+    
+    ) {
+      
   }
+
+
 
   public navigateToDetail() {
     if (this.cars) {
@@ -27,6 +38,20 @@ export class CarsComponent {
     this.router.navigate(['create-car'], { queryParams: {
       id: this.cars?._id
     }})
+  }
+
+  public addFvorite() {
+    const user = localStorage.getItem('user-token');
+    if(user && this.cars) {
+      const userId = JSON.parse(user).id ;
+      const carId = this.cars?._id;
+      this.authService.sendToFavoritosApi(userId, carId)
+      console.log(carId, userId);
+      
+    }
+    
+    
+    
   }
 
 }

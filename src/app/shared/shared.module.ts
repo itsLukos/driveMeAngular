@@ -5,12 +5,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CarsComponent } from './components/cars/cars.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 
 @NgModule({
   declarations: [
-    CarsComponent
+    CarsComponent,
+    FilterPipe
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { CarsComponent } from './components/cars/cars.component';
     MatCardModule, MatButtonModule
   ],
   exports: [
-    CarsComponent
+    CarsComponent,
+    FilterPipe
   ]
 })
 export class SharedModule { }

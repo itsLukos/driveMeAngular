@@ -7,6 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -21,7 +22,8 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     SharedModule,
     HttpClientModule,
-    CoreModule
+    CoreModule,
+    NgxPaginationModule
   ],
   exports: [],
   providers: [],

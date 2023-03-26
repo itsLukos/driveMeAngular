@@ -1,3 +1,4 @@
+import { Concesionario } from 'src/app/core/services/concesionarios/concesionario.models';
 import { CarsService } from './../../core/services/cars/cars.service';
 import { Cars } from 'src/app/core/services/cars/cars.model';
 
@@ -14,6 +15,13 @@ export class CarsListComponent implements OnInit{
 
   public cars: Cars[] = [];
 
+  //variables para el filtro
+  public carMarca: string = '';
+  
+
+  public pages: number = 1;
+
+
   constructor(
     //llamamos al servicio que nos trae los coches
     private carsService: CarsService
@@ -22,7 +30,7 @@ export class CarsListComponent implements OnInit{
   public ngOnInit() {
     this.carsService.getCars().subscribe((carsFromApi) => {
       this.cars = carsFromApi;
-      console.log(carsFromApi)
+      
     })
   };
 
