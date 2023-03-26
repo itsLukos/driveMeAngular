@@ -4,19 +4,22 @@ import { CarsListModule } from './../pages/cars-list/cars-list.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CarsComponent } from './components/cars/cars.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 
 @NgModule({
   declarations: [
-    CarsComponent
+    CarsComponent,
+    FilterPipe
   ],
   imports: [
     CommonModule,
     RouterModule
   ],
   exports: [
-    CarsComponent
+    CarsComponent,
+    FilterPipe
   ]
 })
 export class SharedModule { }

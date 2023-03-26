@@ -1,3 +1,4 @@
+import { Concesionario } from 'src/app/core/services/concesionarios/concesionario.models';
 import { CarsService } from './../../core/services/cars/cars.service';
 import { Cars } from 'src/app/core/services/cars/cars.model';
 
@@ -13,6 +14,11 @@ import { Component, OnInit } from '@angular/core';
 export class CarsListComponent implements OnInit{
 
   public cars: Cars[] = [];
+
+  //variables para el filtro
+  public carMarca: string = '';
+  public concesionarioNombre?: Concesionario;
+
 
   constructor(
     //llamamos al servicio que nos trae los coches
