@@ -1,14 +1,21 @@
-<div
-    *ngIf="cars"
->
-
-<div >
-
-    <p>{{ cars._id }}</p>
-    <p>Marca: {{ cars.marca }}</p>
-    <p>Modelo: {{ cars.modelo }}</p>
-    <p>{{ cars.concesionario._id }}</p>
-    <button (click)="navigateToDetail()" >Mas informacion</button>
-    <button (click)="editCar()" >Editar coches</button>
-    <button (click)="addFvorite()" >Añadir a fav</button>
+<div class="cars-card">
+    <div *ngIf="cars">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    <p class="nombre">
+                        {{ cars.marca }} {{ cars.modelo }}
+                    </p>
+                </mat-card-title>
+            </mat-card-header>
+            <div class="foto">
+                <img src="{{ cars.foto }}" alt="Card image cap">
+            </div>
+            <div>
+                <button (click)="navigateToDetail()" class="btn btn-primary">Mas informacion</button>
+                <button (click)="editCar()" class="btn btn-primary">Editar coches</button>
+            </div>
+        </mat-card>
+    </div>
 </div>
+
