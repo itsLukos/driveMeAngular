@@ -1,16 +1,18 @@
 <div *ngIf="cars">
-
-  <p>Marca: {{ cars.marca }}</p>
-  <p>Nuevo: {{ cars.nuevo }}</p>
+  <h1>{{ cars.marca }} {{ cars.modelo }} </h1>
+  <img src="{{ cars.foto }}" alt="Card image cap">
+  <div class="datos">
+    <p>Marca: {{ cars.marca }}</p>
   <p>Motor: {{ cars.motor }}</p>
   <p>Transmision: {{ cars.transmision }}</p>
   <p>Cilindrada: {{ cars.cilindrada }}</p>
   <p>Carrocería: {{ cars.carroceria }}</p>
   <p>Precio: {{ cars.precio }}</p>
-  <p>Conesionario: {{ cars.concesionario._id }}</p>
+  <p>Concesionario: {{ cars.concesionario._id }}</p>
+  </div>
+  
 
-    <button (click)="navigateToCarsList()" >Volver al listado de coches</button>
+  <button (click)="navigateToCarsList()" class="btn">Volver al listado de coches</button>
+
 
 </div>
-
- 
