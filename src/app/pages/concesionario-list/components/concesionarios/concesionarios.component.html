@@ -1,20 +1,24 @@
-<div
-    *ngIf="concesionario"
-    class="concesionario"
->
-<p class="concesionario__name"> {{ concesionario.nombre }}</p>
 
-    <div class="concesionario__info">
-        <p class="concesionario__ccaa">{{ concesionario.ccaa }}</p>
+
+
+<div class="concesionarios-card">
+    <div *ngIf="concesionario">
+        <mat-card class="card">
+            <mat-card-header>
+                <mat-card-title>
+                    <p class="nombre">
+                        {{ concesionario.nombre }}
+                        
+                    </p>
+                </mat-card-title>
+                
+
+            </mat-card-header>
+            <p>{{ concesionario.ccaa }}</p>
+            <div>
+                <button (click)="navigateToDetail()" class="btn btn-primary">Mas informacion</button>
+
+            </div>
+        </mat-card>
     </div>
-
-    <div>
-        <button 
-            class="concesionario__button"
-            (click)="navigateToDetail()"  
-        > Más información
-
-        </button>
-    </div>
-    
 </div>
