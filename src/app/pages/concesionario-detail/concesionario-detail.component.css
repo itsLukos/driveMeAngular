@@ -1,0 +1,25 @@
+* {
+    margin: 25px 20% 25px 20%;
+    text-transform: uppercase;
+    font-family: fantasy;
+}
+.datos {
+    border: 3px solid black;
+}
+
+.datos:hover {
+    background-color: rgb(37, 40, 41);
+    border: 3px solid orange;
+    color: orange;
+}
+.btn {
+    padding: 15px;
+    background-color: white;
+    border: 3px solid black;
+}
+
+.btn:hover {
+    background-color: rgb(37, 40, 41);
+    border: 3px solid orange;
+    color: orange;
+}

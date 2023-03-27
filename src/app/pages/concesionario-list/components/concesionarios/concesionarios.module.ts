@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ConcesionariosComponent } from './concesionarios.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -9,7 +11,8 @@ import { ConcesionariosComponent } from './concesionarios.component';
     ConcesionariosComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatCardModule, MatButtonModule
   ],
   exports: [
     ConcesionariosComponent
