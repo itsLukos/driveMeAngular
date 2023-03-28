@@ -12,8 +12,15 @@
                 <img src="{{ cars.foto }}" alt="Card image cap">
             </div>
             <div>
-                <button (click)="navigateToDetail()" class="btn btn-primary">Mas informacion</button>
-                <button (click)="editCar()" class="btn btn-primary">Editar coches</button>
+                <button 
+                    (click)="navigateToDetail()" 
+                    class="btn btn-primary"
+                >Mas informacion</button>
+                <!--<button *showForRoles="['seller']"(click)="editCar()" class="btn btn-primary">Editar coches</button>-->
+                <button 
+                    (click)="editCar()" 
+                    class="btn btn-primary"
+                >Editar coches</button>
             </div>
         </mat-card>
     </div>

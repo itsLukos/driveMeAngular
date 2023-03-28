@@ -1,10 +1,9 @@
-
-
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { Cars } from 'src/app/core/services/cars/cars.model';
 import { Router } from '@angular/router';
-
 import { Component, Input } from '@angular/core';
+import { RoleUser } from 'src/app/core/services/auth/models/auth.models';
+import { map, Observable } from 'rxjs';
 
 
 @Component({
@@ -21,12 +20,7 @@ export class CarsComponent {
     private router: Router,
     private authService: AuthService,
   
-    
-    ) {
-      
-  }
-
-
+    ) { }
 
   public navigateToDetail() {
     if (this.cars) {
@@ -48,10 +42,14 @@ export class CarsComponent {
       this.authService.sendToFavoritosApi(userId, carId)
       console.log(carId, userId);
       
-    }
-    
-    
-    
+    } 
+  }
+
+  //tomo como argumento el array de roles permitidos para indicar si el usuario actual tiene alguno de ellos. Para que aparezca botón de crear coche según el role del usuario.
+  public userRoleIn(allowedRoles: RoleUser): Observable<boolean> {
+    return this.authService.user$.pipe(
+      map((user) => Boolean(user && allowedRoles.includes(user.role)))
+    );    
   }
 
 }
