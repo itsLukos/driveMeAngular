@@ -2,7 +2,7 @@ import { Cars } from 'src/app/core/services/cars/cars.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { catchError, Observable, of, ReplaySubject, tap } from 'rxjs';
+import { BehaviorSubject, catchError, map, Observable, of, ReplaySubject, tap } from 'rxjs';
 import { AuthError, IUser, IUserSignInResponse } from './models/auth.models';
 
 const AUTH_URL = 'https://drive-ddl3m20q4-rubenprada89-outlookcom.vercel.app/user';
@@ -16,6 +16,10 @@ const TOKEN_KEY = 'user-token';
 export class AuthService {
 
   public userLogged$: ReplaySubject<boolean> = new ReplaySubject<boolean>(1);
+  
+  public user = new BehaviorSubject<IUser | null>(null);
+  public user$ = this.user.asObservable();
+  public IsLoggedIn$: Observable<boolean> = this.user$.pipe(map(Boolean));
 
   constructor(
     private http: HttpClient,
@@ -30,7 +34,8 @@ export class AuthService {
         const userToStore = JSON.stringify({
           token: res.token,
           id: res.user._id,
-          email: res.user.email
+          email: res.user.email,
+          role:  res.user.role
         });
         localStorage.setItem(TOKEN_KEY, userToStore);
         this.userLogged$.next(true);
@@ -69,7 +74,6 @@ export class AuthService {
 
       "carId": carId,
       "userId": userId
-      
     
     }
     return this.http.put<IUser>(`${AUTH_URL}/addFavoriteCar`, body)

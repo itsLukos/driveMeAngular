@@ -11,7 +11,7 @@ export class FilterPipe implements PipeTransform {
     if(!value) {return []}
     if(!marca ) {return value}
     return value.filter((car) => {
-      return car.marca.includes(marca)
+      return car.marca?.includes(marca)
       
     })
   }

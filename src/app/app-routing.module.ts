@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AuthGuard } from "./core/guards/auth.guard";
 import { ExitGuard } from "./core/guards/exit.guard";
+import { HasRoleGuard } from "./core/guards/has-role.guard";
 import { RequestCarResolver } from "./core/resolvers/request-car.resolver";
 
 
@@ -40,7 +41,11 @@ const routes: Routes = [
     {
         path: 'create-car',
         loadChildren: () => import('./pages/create-car/create-car.module').then(m => m.CreateCarModule),
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
+        canLoad: [HasRoleGuard],
+        data:{
+            allowedRoles: 'seller'
+        },  
     },
     {
         path: 'login',
@@ -49,7 +54,7 @@ const routes: Routes = [
     {
         path: 'account',
         loadChildren: () => import('./pages/account/account.module').then(m => m.AccountModule),
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
     },
     //Acepta cualquier ruta
     {
