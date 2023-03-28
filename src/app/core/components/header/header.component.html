@@ -11,7 +11,7 @@
       <li><a href="#" class="atr" [routerLink]="['concesionario-list']">Concesionarios</a></li>
       <li><a href="#" class="atr" [routerLink]="['cars-list']">Coches</a></li>
       <li><a *ngIf="isLogged" href="#" class="atr" [routerLink]="['account']">Favoritos</a></li>
-      <li><button *ngIf="isLogged" (click)="logoutUser()">Logout</button></li>
+      <li><a *ngIf="isLogged" (click)="logoutUser()" class="logout-button">Logout</a></li>
       <li>
         <form class="busqueda">
           <input type="search" class="form-control" placeholder="Search..." aria-label="Search">

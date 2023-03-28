@@ -1,0 +1,10 @@
+h2, p{
+    text-align: center;
+    margin: 50px;
+}
+
+.container{
+    text-align: center;
+    align-items: center;
+    margin: 100px;
+}

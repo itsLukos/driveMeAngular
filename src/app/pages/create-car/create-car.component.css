@@ -1,0 +1,12 @@
+.login-form{
+    margin: 5% 25% 2% 25%;
+    border: solid black;
+    border-radius: 15px;
+}
+.login{
+    margin: 15px;
+}
+h2{
+    text-align: center;
+    margin-top: 15px;
+}
