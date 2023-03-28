@@ -35,6 +35,28 @@ h1 {
     text-align: center;
 }
   
-.flechas {
-    color: yellow;
+.equipo {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgb(52, 53, 80);
+    color: white;
+    margin: auto 30% 30px 30%;
+}
+p {
+    margin: 15px;
+}
+ a {
+    text-decoration: none;
+}
+li {
+    list-style-type: none;
+    font-size: larger;
+    color: white;
+    text-align: center;
+    margin: 15px;
+    padding: 15px;
+}
+li:hover {
+    background-color: orange;
+    color: black;
 }
