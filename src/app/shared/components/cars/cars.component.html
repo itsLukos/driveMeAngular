@@ -21,6 +21,11 @@
                     (click)="editCar()" 
                     class="btn btn-primary"
                 >Editar coches</button>
+                <button 
+                    *ngIf="!isLogged"
+                    (click)="addFavorite()" 
+                    class="btn btn-primary"
+                >Guardar</button>
             </div>
         </mat-card>
     </div>
