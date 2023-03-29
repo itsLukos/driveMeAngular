@@ -21,7 +21,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     SharedModule,
     HttpClientModule,
     CoreModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    BrowserAnimationsModule
   ],
   exports: [],
   providers: [],
