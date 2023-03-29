@@ -57,7 +57,26 @@
         <label class="form-label">Concesionario</label>
         <select formControlName="concesionario" class="form-select" aria-label="Default select example">
           <option default value="Seleccione opción"></option>
-          <option></option>
+          <option>Autos del Oriente</option>
+          <option>Opción Segura</option>
+          <option>Industrial Coches</option>
+          <option>Coches Carrera</option>
+          <option>Venta Express</option>
+          <option>Nuevos y Seminuevos ¡YA!</option>
+          <option>Hotrod Coches</option>
+          <option>Flexicredi Autos</option>
+          <option>Estreno Seguro</option>
+          <option>Los Caminos</option>
+          <option>Concesionaria Ramos</option>
+          <option>iCar Plus</option>
+          <option>Naturaleza Coches</option>
+          <option>Edu Coches</option>
+          <option>Coches Precio</option>
+          <option>Coches el Alamo</option>
+          <option>Car Guaranteed</option>
+          <option>Coches Deposito</option>
+          <option>Uber Coches</option>
+
         </select>
         <p
           *ngIf="!carForm.get('concesionario')?.valid
@@ -174,7 +193,7 @@
     
   </div>
 
-  <button type="submit" [disabled]="!carForm.valid" class="btn btn-primary login">
+  <button (click)="createNewCar()" type="submit" [disabled]="!carForm.valid" class="btn btn-primary login">
     {{ canEdit ? "Editar coche" : "Crear coche" }}
   </button>
 </form>
