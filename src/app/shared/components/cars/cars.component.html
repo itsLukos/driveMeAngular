@@ -18,6 +18,7 @@
                 >Mas informacion</button>
                 <!--<button *showForRoles="['seller']"(click)="editCar()" class="btn btn-primary">Editar coches</button>-->
                 <button 
+                    *ngIf="isLogged"
                     (click)="editCar()" 
                     class="btn btn-primary"
                 >Editar coches</button>
