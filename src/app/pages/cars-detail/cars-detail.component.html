@@ -1,6 +1,9 @@
 <div *ngIf="cars">
   <h1>{{ cars.marca }} {{ cars.modelo }} </h1>
-  <img src="{{ cars.foto }}" alt="Card image cap">
+  <div class="img-container">
+    <img src="{{ cars.foto }}" alt="Card image cap">
+  </div>
+  
   <div class="datos">
   <p>Marca: {{ cars.marca }}</p>
   <p>Modelo: {{ cars.modelo }}</p>
@@ -13,7 +16,7 @@
   </div>
   
 
-  <button (click)="navigateToCarsList()" class="btn">Volver al listado de coches</button>
+  <button (click)="navigateToCarsList()" class="btn ">Volver al listado de coches</button>
 
 
 </div>

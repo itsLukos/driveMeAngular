@@ -90,19 +90,9 @@ input {
     background-color: orange;
 
 }
-.logout-button{
-    padding: 15px;
-    transition: all 0.5s ease-out;
-    cursor: pointer;
-    letter-spacing: 3.5px;
-    color: red;
-    text-transform: uppercase;
-    font-weight: bolder;
-    font-size: large;
-    text-decoration: none;
-    
-}
+
 .logout{
-    margin-left: 150px;
+    margin-left: 100px;
+   
 }
 
