@@ -2,3 +2,15 @@ h1 {
     margin: 20px;
     text-align: center;
 }
+.search{
+    width: 20%;
+    margin-left: 7%;
+}
+.car-list{
+    text-align: center;
+}
+.pagination{
+    margin-left: 5%;
+    margin-top: 15px;
+    
+}

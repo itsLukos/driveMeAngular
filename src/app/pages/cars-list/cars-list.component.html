@@ -6,8 +6,8 @@ class="pagination__container"
         class="pagination"
         (pageChange)="pages = $event"
     ></pagination-controls>
-<input placeholder="Filtrar por marca" [(ngModel)]="carMarca">
-<div>
+<input placeholder="Filtrar por marca" [(ngModel)]="carMarca" class="form-control me-2 search" type="search" aria-label="Search">
+<div class="car-list">
     <app-cars
         *ngFor="let car of cars | filter : carMarca | paginate: {itemsPerPage: 10, currentPage: pages} " 
         [cars]="car"
