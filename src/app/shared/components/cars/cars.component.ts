@@ -25,6 +25,11 @@ export class CarsComponent {
   
     ) { }
 
+  public ngOnInit() {
+    //nos subscribimos y si hay user cambiamos la variable isLoged a true
+    this.authService.userLogged$.subscribe((isLogged) => this.isLogged = isLogged)
+  } 
+
   public navigateToDetail() {
     if (this.cars) {
       this.router.navigate(['cars-detail', this.cars._id])
