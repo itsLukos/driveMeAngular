@@ -13,6 +13,9 @@ import { map, Observable } from 'rxjs';
 })
 export class CarsComponent {
 
+  //variable para logeo
+  public isLogged: boolean = false;
+
   @Input() public cars?: Cars;
 
 
@@ -34,7 +37,7 @@ export class CarsComponent {
     }})
   }
 
-  public addFvorite() {
+  public addFavorite() {
     const user = localStorage.getItem('user-token');
     if(user && this.cars) {
       const userId = JSON.parse(user).id ;

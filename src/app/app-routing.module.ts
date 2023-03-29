@@ -42,10 +42,10 @@ const routes: Routes = [
         path: 'create-car',
         loadChildren: () => import('./pages/create-car/create-car.module').then(m => m.CreateCarModule),
         canActivate: [AuthGuard],
-        canLoad: [HasRoleGuard],
+       /* canLoad: [HasRoleGuard],
         data:{
             allowedRoles: 'seller'
-        },  
+        }, */ 
     },
     {
         path: 'login',
