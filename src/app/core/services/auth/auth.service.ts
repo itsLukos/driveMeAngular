@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, map, Observable, of, ReplaySubject, tap } from 'rxjs';
-import { AuthError, IUser, IUserSignInResponse } from './models/auth.models';
+import { AuthError, IUser, IUserSignInResponse, RoleUser } from './models/auth.models';
 
 const AUTH_URL = 'https://drive-ddl3m20q4-rubenprada89-outlookcom.vercel.app/user';
 const TOKEN_KEY = 'user-token';
@@ -17,7 +17,7 @@ export class AuthService {
 
   public userLogged$: ReplaySubject<boolean> = new ReplaySubject<boolean>(1);
   
-  public user = new BehaviorSubject<IUser | null>(null);
+  public user = new BehaviorSubject<IUser | undefined>(JSON.parse(localStorage.getItem('user-token') ?? '{}'));
   public user$ = this.user.asObservable();
   public IsLoggedIn$: Observable<boolean> = this.user$.pipe(map(Boolean));
 
@@ -77,5 +77,13 @@ export class AuthService {
     
     }
     return this.http.put<IUser>(`${AUTH_URL}/addFavoriteCar`, body)
+  }
+
+  //tomo como argumento el array de roles permitidos para indicar si el usuario actual tiene alguno de ellos. Para que aparezca botón de crear coche según el role del usuario. Ubicamos aquí la función para poder usarla en distintas partes de la página.
+
+  public userRoleIn(allowedRoles: RoleUser): Observable<boolean> {
+    return this.user$.pipe(
+      map((user) => Boolean( user && allowedRoles.includes(user.role)))
+    );
   }
 }
