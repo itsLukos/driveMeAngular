@@ -1,17 +1,21 @@
 <div class="cars-card">
     <div *ngIf="cars">
         <mat-card>
-            <mat-card-header>
-                <mat-card-title>
-                    <p class="nombre">
-                        {{ cars.marca }} {{ cars.modelo }}
-                    </p>
+            <mat-card-header class="title">
+                <mat-card-title >
+                    <div >
+                        <h2 class="nombre">
+                            {{ cars.marca }} {{ cars.modelo }}
+                        </h2>
+                    </div>
+
                 </mat-card-title>
             </mat-card-header>
             <div class="foto">
-                <img src="{{ cars.foto }}" alt="Card image cap">
+                <img src="{{ cars.foto }}" alt="Card image cap"
+                class="imageCars">
             </div>
-            <div>
+            <div class="buttonContainer">
                 <button 
                     (click)="navigateToDetail()" 
                     class="btn btn-primary"
