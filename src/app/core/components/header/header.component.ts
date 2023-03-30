@@ -1,6 +1,6 @@
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { RoleUser } from '../../services/auth/models/auth.models';
 
 
@@ -14,6 +14,9 @@ export class HeaderComponent implements OnInit{
   
   //variable para logeo
   public isLogged: boolean = false;
+
+  //variable para acceso a favoritos
+  public canSeeFavorite = false;
     
   constructor(
     private auth: AuthService
@@ -21,18 +24,24 @@ export class HeaderComponent implements OnInit{
 
   public ngOnInit() {
     //nos subscribimos y si hay user cambiamos la variable isLoged a true
-    this.auth.userLogged$.subscribe((isLogged) => this.isLogged = isLogged)
+    //this.auth.userLogged$.subscribe((isLogged) => this.isLogged = isLogged)
+    const isLogged = this.auth.userLogged$.pipe(
+      tap((isLogged) => this.isLogged = isLogged)
+    )
+    
+    //Observable para validar favoritos
+    const favoritePermission = this.auth.userRoleIn('buyer').pipe(
+      tap((user) => this.canSeeFavorite = user)
+    );
+
+    [isLogged,favoritePermission].forEach((x:Observable<any>) => x.subscribe());
   }
+
+  
 
   public logoutUser() {
     this.auth.logoutJWT();
   }
 
-  //tomo como argumento el array de roles permitidos para indicar si el usuario actual tiene alguno de ellos. Para usar en una sección del header y cambie según el role del usuario
-  public userRoleIn(allowedRoles: RoleUser): Observable<boolean> {
-    return this.auth.user$.pipe(
-      map((user) => Boolean(user && allowedRoles.includes(user.role)))
-    );    
-    }
 }
 

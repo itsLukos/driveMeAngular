@@ -3,7 +3,7 @@ import { Cars } from 'src/app/core/services/cars/cars.model';
 import { Router } from '@angular/router';
 import { Component, Input } from '@angular/core';
 import { RoleUser } from 'src/app/core/services/auth/models/auth.models';
-import { map, Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 
 
 @Component({
@@ -14,10 +14,11 @@ import { map, Observable } from 'rxjs';
 export class CarsComponent {
 
   //variable para logeo
-  public isLogged: boolean = false;
+  //public isLogged: boolean = false;
 
   @Input() public cars?: Cars;
 
+  canEdit = false;
 
   constructor(
     private router: Router,
@@ -27,8 +28,12 @@ export class CarsComponent {
 
   public ngOnInit() {
     //nos subscribimos y si hay user cambiamos la variable isLoged a true
-    this.authService.userLogged$.subscribe((isLogged) => this.isLogged = isLogged)
-  } 
+    const editPermission = this.authService.userRoleIn('seller').pipe(
+      tap((value) => this.canEdit = value)      
+    );
+
+    [editPermission].forEach((x:Observable<any>) => x.subscribe());
+        } 
 
   public navigateToDetail() {
     if (this.cars) {
@@ -47,17 +52,7 @@ export class CarsComponent {
     if(user && this.cars) {
       const userId = JSON.parse(user).id ;
       const carId = this.cars?._id;
-      this.authService.sendToFavoritosApi(userId, carId)
-      console.log(carId, userId);
-      
+      this.authService.sendToFavoritosApi(userId, carId)      
     } 
   }
-
-  //tomo como argumento el array de roles permitidos para indicar si el usuario actual tiene alguno de ellos. Para que aparezca botón de crear coche según el role del usuario.
-  public userRoleIn(allowedRoles: RoleUser): Observable<boolean> {
-    return this.authService.user$.pipe(
-      map((user) => Boolean(user && allowedRoles.includes(user.role)))
-    );    
-  }
-
 }

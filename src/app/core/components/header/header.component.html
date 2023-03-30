@@ -10,7 +10,7 @@
       <li><a href="#" class="atr" [routerLink]="['home']">Home</a></li>
       <li><a href="#" class="atr" [routerLink]="['concesionario-list']">Concesionarios</a></li>
       <li><a href="#" class="atr" [routerLink]="['cars-list']">Coches</a></li>
-      <li><a *ngIf="isLogged" href="#" class="atr" [routerLink]="['account']">Nuevo coche</a></li>
+      <li><a *ngIf="isLogged && canSeeFavorite" href="#" class="atr" [routerLink]="['account']">Favoritos</a></li>
       <li><a *ngIf="isLogged" (click)="logoutUser()" class="btn logout">Logout</a></li>
       <li>
         <form class="busqueda">
